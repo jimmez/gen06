@@ -150,13 +150,6 @@ It's a documentary
 It's a rom com
 It's an action movie
 It's a drama
-it's shakespeare
-alliteration
-rhymes
-question and rhymes 
-a secret 
-ancestry justification
-social justification 
 `.trim().split('\n');
 
     let soundOn = true;
