@@ -105,52 +105,59 @@
   </div>
 
   <script>
-    const prompts = [
-      ["👑", "Voice"],
-      ["🎭", "Attitude"],
-      ["🧍", "Pose"],
-      ["🐯", "Animal"],
-      ["🎩", "Prop"],
-      ["🔥", "Obsession"],
-      ["🧠", "Justification"],
-      ["🚗", "Physical"],
-      ["💓", "Emotion"],
-      ["🎨", "Endowment"],
-      ["📜", "Philosophy"],
-      ["💬", "Proverb"],
-      ["🏈", "Action"],
-      ["🎨", "Color"],
-      ["🧰", "Messing - object"],
-      ["🏃", "Action"],
-      ["😮", "Emotion"],
-      ["🔍", "Details"],
-      ["💨", "Breathe"],
-      ["👐", "Mime"],
-      ["🔊", "Sound"],
-      ["🔁", "Repeat"],
-      ["🌍", "New location"],
-      ["➡️", "Adjacent location"],
-      ["🚶‍♂️", "Bring character to new location"],
-      ["📦", "Bring object to new location"],
-      ["🧵", "Keep theme"],
-      ["⏳", "Meanwhile"],
-      ["🧠", "Head"],
-      ["❤️", "Heart"],
-      ["🍽️", "Stomach"],
-      ["💋", "Sexy"],
-      ["⚖️", "Heavy or light"],
-      ["✋", "Choppy hands"],
-      ["🐢⚡", "Slow or fast"],
-      ["📈", "Bigger"],
-      ["📉", "Smaller"],
-      ["🔈", "Soft volume"],
-      ["📢", "Loud"],
-      ["🎬", "It's a Disney movie"],
-      ["📽️", "It's a documentary"],
-      ["💕", "It's a rom com"],
-      ["💥", "It's an action movie"],
-      ["🎭", "It's a drama"]
-    ];
+    const prompts = `
+Voice
+Attitude
+Pose
+Animal
+Prop
+Obsession
+Justification
+Physical
+Emotion
+Endowment
+Philosophy
+Proverb
+Action
+Color
+Messing - object
+Action
+Emotion
+Details
+Breathe
+Mime
+Sound
+Repeat
+New location
+Adjacent location
+Bring character to new location
+Bring object to new location
+Keep theme
+Meanwhile
+Head
+Heart
+Stomach
+Sexy
+Heavy or light
+Choppy hands
+Slow or fast
+Bigger
+Smaller
+Soft volume
+Loud
+It's a Disney movie
+It's a documentary
+It's a rom com
+It's an action movie
+It's a drama
+it's shakespeare
+alliteration
+rhymes
+question and rhymes 
+a secret 
+ancestry justification
+social justification 
+`.trim().split('\n');
 
     let soundOn = true;
     let autoPlay = false;
@@ -164,8 +171,7 @@
     const clickArea = document.getElementById('clickArea');
 
     function getRandomPrompt() {
-      const [emoji, text] = prompts[Math.floor(Math.random() * prompts.length)];
-      return `${emoji} ${text}`;
+      return prompts[Math.floor(Math.random() * prompts.length)];
     }
 
     function generatePrompt() {
@@ -213,13 +219,10 @@
       else stopAutoPlay();
     });
 
-    // Tap anywhere
     clickArea.addEventListener('click', generatePrompt);
-
-    // Press any key
     window.addEventListener('keydown', generatePrompt);
 
-    // Swipe to toggle sound (mobile)
+    // Swipe to toggle sound
     let touchStartX = null;
     clickArea.addEventListener('touchstart', function(e) {
       touchStartX = e.changedTouches[0].screenX;
@@ -231,7 +234,6 @@
       touchStartX = null;
     });
 
-    // Preload voices
     window.speechSynthesis.onvoiceschanged = () => {};
   </script>
 
